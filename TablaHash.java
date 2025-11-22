@@ -26,14 +26,17 @@ public class TablaHash {
                 id++;
             }
         } 
-
-        ArrayList<String> listaOrdenada = new ArrayList<>(tablaHash.values());
-        Collections.sort(listaOrdenada);
-
-        System.out.println("\n Datos ordenados alfabéticamente:");
-        for (String nombre : listaOrdenada) {
-            System.out.println(nombre);
+        catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+            return;
         }
+
+        System.out.println("Datos originales en la tabla Hash:");
+        for (Map.Entry<Integer, String> entry : tablaHash.entrySet()) {
+            System.out.println("ID " + entry.getKey() + ": " + entry.getValue());
+        }
+
+       
 
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivoSalida))) {
