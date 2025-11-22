@@ -36,7 +36,16 @@ public class TablaHash {
             System.out.println("ID " + entry.getKey() + ": " + entry.getValue());
         }
 
-       
+
+
+        
+       ArrayList<String> listaOrdenada = new ArrayList<>(tablaHash.values());
+        Collections.sort(listaOrdenada);
+
+        System.out.println("\n Datos ordenados alfabéticamente:");
+        for (String nombre : listaOrdenada) {
+            System.out.println(nombre);
+        }
 
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivoSalida))) {
